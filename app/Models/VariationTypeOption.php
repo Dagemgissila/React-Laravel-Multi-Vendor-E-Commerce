@@ -3,17 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\Image\Enums\Fit;
-class Product extends Model implements HasMedia
+
+class VariationTypeOption extends Model implements HasMedia
 {
-    //
     use InteractsWithMedia;
-
-
-
 
     public function registerMediaConversions(?Media $media = null): void
     {
@@ -31,22 +28,6 @@ class Product extends Model implements HasMedia
             ->nonQueued();
     }
 
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
-
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-
-    public function variationTypes()
-    {
-        return $this->hasMany(VariationType::class);
-    }
 
 
 }

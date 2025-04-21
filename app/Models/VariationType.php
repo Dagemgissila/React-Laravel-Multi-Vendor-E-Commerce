@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use App\Filament\Resources\ProductResource\Pages\ProductVariationTypes;
+use Illuminate\Database\Eloquent\Model;
+
+class VariationType extends Model
+{
+    public function options()
+    {
+        return $this->hasMany(VariationTypeOption::class, 'variation_type_id');
+    }
+
+}
