@@ -5,7 +5,6 @@ import { ProductItem } from "@/Components/App/ProductItem";
 export default function Home({
     products,
 }: PageProps<{ products: PaginationProps<Product> }>) {
-    console.log(products.data);
     return (
         <AuthenticatedLayout>
             <Head title="Welcome" />
