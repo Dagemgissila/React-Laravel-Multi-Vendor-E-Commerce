@@ -1,2 +1,6 @@
-*
-!.gitignore
+# Ignore everything in storage except .gitignore and necessary folders
+/storage/*
+!/storage/.gitignore
+!/storage/app/
+/storage/app/*
+!/storage/app/public/

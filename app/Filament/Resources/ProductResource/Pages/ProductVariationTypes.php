@@ -16,12 +16,15 @@ class ProductVariationTypes extends EditRecord
 {
     protected static string $resource = ProductResource::class;
 
-    protected static ?string $navigationIcon = 'heroicon-c-photo';
+    protected static ?string $title = 'Variation Types';
+
+    protected static ?string $navigationIcon = 'heroicon-m-numbered-list';
     public function form(Form $form): Form
     {
         return $form
             ->schema([
                 Repeater::make('variationTypes')
+                    ->label(false)
                     ->relationship()
                     ->collapsible()
                     ->defaultItems(1)

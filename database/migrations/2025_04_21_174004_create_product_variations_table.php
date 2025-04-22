@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('product_id')->index()->constrained('products')->cascadeOnDelete();
             $table->string("name");
-            $table->string("slug");
+            $table->string("type");
         });
 
 

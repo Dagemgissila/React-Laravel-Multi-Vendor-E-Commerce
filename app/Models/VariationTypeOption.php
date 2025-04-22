@@ -12,6 +12,7 @@ class VariationTypeOption extends Model implements HasMedia
 {
     use InteractsWithMedia;
 
+    public $timestamps = false;
     public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('thumb')
