@@ -9,6 +9,7 @@ use App\Filament\Resources\ProductResource\Pages\EditProduct;
 use App\Filament\Resources\ProductResource\Pages\ProductImages;
 use App\Filament\Resources\ProductResource\Pages\ProductVariationTypes;
 use App\Models\Product;
+use App\Models\ProductVariation;
 use Faker\Provider\Image;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -29,12 +30,20 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Str;
 use Filament\Resources\Pages\Page;
 
+
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-s-queue-list';
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::End;
+
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->forVendor();
+    }
+
 
     public static function form(Form $form): Form
     {
@@ -162,7 +171,7 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
             'images' => Pages\ProductImages::route('/{record}/images'),
             'variation-types' => Pages\ProductVariationTypes::route('/{record}/variation-types'),
-
+            'variations' => Pages\ProductVariations::route('/{record}/variations'),
         ];
     }
 
@@ -174,6 +183,7 @@ class ProductResource extends Resource
                 EditProduct::class,
                 ProductImages::class,
                 ProductVariationTypes::class,
+                Pages\ProductVariations::class,
             ]);
     }
 

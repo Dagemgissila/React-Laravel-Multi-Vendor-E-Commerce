@@ -31,7 +31,7 @@ return new class extends Migration {
             $table->json('variation_type_option_ids');
             $table->integer('quantity')->nullable();
             $table->decimal('price', 20, 4)->nullable();
-            $table->string("slug");
+            $table->timestamps();
         });
     }
 
